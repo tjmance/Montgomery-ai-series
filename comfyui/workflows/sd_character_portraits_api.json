@@ -1,0 +1,104 @@
+{
+  "nodes": {
+    "1": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 987654,
+        "steps": 28,
+        "cfg": 6.5,
+        "sampler_name": "dpmpp_sde",
+        "scheduler": "karras",
+        "denoise": 1.0,
+        "model": [
+          "3",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      }
+    },
+    "3": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "SDXL.safetensors"
+      }
+    },
+    "4": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "1",
+          0
+        ],
+        "vae": [
+          "3",
+          2
+        ]
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "POS_PROMPT"
+      },
+      "inputs": {
+        "clip": [
+          "3",
+          1
+        ],
+        "text": "PLACEHOLDER_POSITIVE"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "NEG_PROMPT"
+      },
+      "inputs": {
+        "clip": [
+          "3",
+          1
+        ],
+        "text": "lowres, extra fingers, watermark"
+      }
+    },
+    "7": {
+      "class_type": "EmptyLatentImage",
+      "inputs": {
+        "width": 832,
+        "height": 1216,
+        "batch_size": 1
+      }
+    },
+    "8": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "portrait"
+      }
+    }
+  },
+  "links": [
+    [
+      "1",
+      0,
+      "4",
+      0
+    ],
+    [
+      "4",
+      0,
+      "8",
+      0
+    ]
+  ]
+}

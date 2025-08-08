@@ -1,0 +1,10 @@
+name: montgomery
+channels: [conda-forge, pytorch, nvidia]
+dependencies:
+  - python=3.11
+  - pytorch
+  - cudatoolkit
+  - ffmpeg
+  - pip
+  - pip:
+      - -r env/requirements.txt

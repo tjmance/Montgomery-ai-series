@@ -1,0 +1,122 @@
+{
+  "nodes": {
+    "1": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 123456,
+        "steps": 30,
+        "cfg": 7.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1.0,
+        "model": [
+          "3",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      }
+    },
+    "3": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "SDXL.safetensors"
+      }
+    },
+    "4": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "1",
+          0
+        ],
+        "vae": [
+          "3",
+          2
+        ]
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "POS_PROMPT"
+      },
+      "inputs": {
+        "clip": [
+          "3",
+          1
+        ],
+        "text": "PLACEHOLDER_POSITIVE"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "NEG_PROMPT"
+      },
+      "inputs": {
+        "clip": [
+          "3",
+          1
+        ],
+        "text": "lowres, text, watermark, logo"
+      }
+    },
+    "7": {
+      "class_type": "EmptyLatentImage",
+      "inputs": {
+        "width": 1024,
+        "height": 576,
+        "batch_size": 1
+      }
+    },
+    "8": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "establishing"
+      }
+    },
+    "9": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "image": [
+          "4",
+          0
+        ],
+        "width": 1280,
+        "height": 720
+      }
+    }
+  },
+  "links": [
+    [
+      "1",
+      0,
+      "4",
+      0
+    ],
+    [
+      "4",
+      0,
+      "9",
+      0
+    ],
+    [
+      "9",
+      0,
+      "8",
+      0
+    ]
+  ]
+}

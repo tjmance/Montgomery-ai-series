@@ -1,0 +1,7 @@
+clip_id,location,description,duration_s,prompt_ref,audio_ref
+001,Capitol,Dusk protest handheld wide,6,protest_dusk,null
+002,Capitol,Streetlight flicker + HUM,4,protest_dusk,hum01
+003,Newsroom,Waveform close-up,5,waveform_closeup,null
+010,Diner,Two-shot banter,12,diner_two_shot,dialogue_diner_01
+030,Riverfront,Tri-light pattern over water,10,river_lights,hum02
+040,Macro,Metal shard macro,4,metal_shard_macro,null

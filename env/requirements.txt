@@ -1,0 +1,11 @@
+python-dotenv
+requests
+pandas
+moviepy
+pydub
+ffmpeg-python
+torch
+transformers
+accelerate
+opencv-python
+TTS
