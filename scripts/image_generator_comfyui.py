@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 COMFY = os.getenv("COMFY_HOST", "http://127.0.0.1:8188")
 SCENE_DIR = Path("scenes/ep01_the_static")
-WF = Path("comfyui/workflows/sd_establishing_plates_api.json")
+WF = Path("comfyui/workflows/flux_establishing_plates_api.json")
 PROMPTS = json.loads(Path("prompts/scenes.json").read_text())
 
 OUT_DIR = SCENE_DIR/"images"
@@ -44,3 +44,4 @@ if __name__ == "__main__":
         out = f"{clip_id}_{prompt_ref}"
         print(f"[ComfyUI] {clip_id} -> {prompt_ref}")
         submit_workflow(ptxt, out)
+
